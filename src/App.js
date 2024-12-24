@@ -44,14 +44,13 @@ function App() {
         }
     ];
 
-    // Array to hold correct answers for each question
     const correctAnswers = [
        "A JavaScript library for building user interfaces",
        "Virtual DOM",
        "A JavaScript function or class that optionally accepts inputs (props) and returns a React element",
        "JavaScript XML"
     ];
-
+    
     const [counter, setCounter] = useState(0);
     const [score, setScore] = useState(0);
     const [quizCompleted, setQuizCompleted] = useState(false);
@@ -72,6 +71,13 @@ function App() {
         }
     }
 
+    // Function to restart the quiz
+    function RestartQuiz() {
+        setCounter(0);
+        setScore(0);
+        setQuizCompleted(false);
+    }
+
     return (
         <div className="container">
             <h1>My Quiz Application</h1>
@@ -80,6 +86,8 @@ function App() {
                     <div>
                         <h2>Quiz Completed!</h2>
                         <h3>Your Score: {score} out of {questions.length}</h3>
+                        {/* Restart Button */}
+                        <button onClick={RestartQuiz}>Restart Quiz</button>
                     </div>
                 ) : (
                     <>
